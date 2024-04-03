@@ -31,3 +31,50 @@ console.log( myH1.classList ); //
 
 // callbacks
 // discus different types of events on the browser -- js
+/**
+ * keyboard events - key up, key down, 
+ * touch events
+ * window - resize, close, loaded, scroll
+ * form - submit, input- change,focus,active, 
+ * mouse - click, hover, over, dbclick, 
+ */
+
+// addEventListener - HOF -- 2 arguments
+// 1 -type of event
+// function to be executed when the event is trigered on the selected element
+const darkenBgButton = document.getElementById("darkenbg")
+
+
+darkenBgButton.addEventListener("click", ()=>{
+    document.querySelector("body").style.backgroundColor = "black"
+    document.querySelector("body").style.color = "white"
+} )
+
+window.addEventListener("DOMContentLoaded", ()=>{
+    console.log("Page fully loaded!");
+})
+
+const passwordInput = document.getElementById("password")
+const confirmPasswordInput = document.getElementById("confirmPassword")
+const errorMessageEl = document.getElementById("errorMessage")
+
+confirmPasswordInput.addEventListener("input", ()=>{
+    
+    console.log("changing");
+    if(passwordInput.value == confirmPasswordInput.value){
+        errorMessageEl.textContent = ""
+    }else{
+        errorMessageEl.textContent = "Password and Confirm Password Mismatch"
+    }
+
+})
+
+// event propagation -- how the browser handle events
+
+document.querySelector("form").addEventListener("submit", (event)=>{
+    event.preventDefault()
+    // fetch API - to submit a custom request
+    console.log("Submitting request!"); 
+})
+
+// assynchronous -- 
